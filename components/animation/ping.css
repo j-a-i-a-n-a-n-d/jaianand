@@ -1,0 +1,49 @@
+.ping-animation {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: 0px;
+  border: 2px solid #181818;
+  animation: ping 2s infinite;
+  z-index: 1;
+}
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.ping-animation-2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: 0px;
+  border: 2px solid #181818;
+  animation: ping-2 2s infinite;
+  z-index: 1;
+}
+@keyframes ping-2 {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
