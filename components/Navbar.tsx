@@ -14,11 +14,11 @@ function Navbar({}: Props) {
                     animate={{ x: 0, opacity: 1, scale: 1 }}
                     transition={{duration:0.7,}}
                     className=' hidden text-gray-300 md:flex md:flex-row md:gap-10 md:justify-around'>
-                    <Link href="/aboutus">About Me</Link>
-                    <Link href="/skills">Skills</Link>
-                    <Link href="/projects">Projects</Link>
-                    <Link href="/experience">Experience</Link>
-                    <Link href="/contactme">Contact Me</Link>
+                    <Link href="#aboutme">About Me</Link>
+                    <Link href="#skills">Skills</Link>
+                    <Link href="#projects">Projects</Link>
+                    <Link href="#experience">Experience</Link>
+                    <Link href="#contactme">Contact Me</Link>
             </motion.div>
             <motion.div
                     initial={{ y: -500, opacity: 0, scale: 0.5 }}

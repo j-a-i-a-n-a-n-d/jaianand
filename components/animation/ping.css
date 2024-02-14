@@ -14,7 +14,7 @@
     opacity: 0;
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.25);
     opacity: 0.5;
   }
   100% {
@@ -39,7 +39,7 @@
     opacity: 0;
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.25);
     opacity: 0.5;
   }
   70% {

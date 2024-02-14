@@ -14,7 +14,7 @@ export default function Hero({ }: Props) {
     })
     return (
         <div className='flex flex-col items-center justify-center h-screen'>
-            <div className='relative m-5'>
+            <div className='relative m-7'>
                 <Image
                     src="/profile.jpg"
                     width={200}
@@ -24,6 +24,7 @@ export default function Hero({ }: Props) {
                 <div className='ping-animation'></div>
                 <div className='ping-animation-2'></div>
             </div>
+            <div>SOFTWARE DEVELOPER</div>
             <div className='text-center'>
                 {text}
                 <Cursor
