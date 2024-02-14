@@ -3,14 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
+import { commonMotionProperties } from '@/helpers/motion-y';
 type Props = {}
-
-interface CommonMotionProperties {
-    initial: { y: number; opacity: number; scale: number };
-    whileInView: { y: number; opacity: number; scale: number };
-    transition: { duration: number };
-}
-
 
 export default function About({ }: Props) {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -24,13 +18,6 @@ export default function About({ }: Props) {
             window.removeEventListener('resize', handleResize);
         };
     }, [isSmallScreen]);
-
-    const commonMotionProperties: CommonMotionProperties = {
-        initial: { y: -100, opacity: 0, scale: 0.5 },
-        whileInView: { y: 0, opacity: 1, scale: 1 },
-        transition: { duration: 0.7 },
-    };
-
     return (
         <div className='flex justify-center h-screen'>
             <div className='flex flex-col gap-8 md:gap-20 items-center md:max-w-6xl'>

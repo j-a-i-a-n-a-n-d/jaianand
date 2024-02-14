@@ -3,6 +3,8 @@ import React from 'react'
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import Image from 'next/image';
 import "../components/animation/ping.css";
+import { motion } from "framer-motion";
+import { commonMotionProperties } from '@/helpers/motion-y';
 type Props = {}
 
 export default function Hero({ }: Props) {
@@ -24,7 +26,7 @@ export default function Hero({ }: Props) {
                 <div className='ping-animation'></div>
                 <div className='ping-animation-2'></div>
             </div>
-            <div>SOFTWARE DEVELOPER</div>
+            <motion.div {...commonMotionProperties}>SOFTWARE DEVELOPER</motion.div>
             <div className='text-center'>
                 {text}
                 <Cursor
