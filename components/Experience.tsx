@@ -7,14 +7,12 @@ type Props = {}
 
 export default function Experience({}: Props) {
     return (
-        <div className='flex justify-center h-screen'>
-            <div className='flex flex-col gap-8  items-center md:max-w-6xl'>
+            <div className='h-screen flex relativecd b overlow-hidden flex-col text-lft md:flex-row max-w-full px-10 justify-evenly mx-auto items-center'>
                 <motion.div
                     {...commonMotionProperties}
-                    className='mt-24 uppercase'>Experience and Education
+                    className='absolute top-24 uppercase'>Experience
                 </motion.div>
                 <Card/>
             </div>
-        </div>
     )
 }

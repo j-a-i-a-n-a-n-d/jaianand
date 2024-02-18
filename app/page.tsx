@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Contactme from "@/components/Contactme";
 export default function Home() {
     const now = new Date();
     const timeZoneIndia = 'Asia/Kolkata';
@@ -25,11 +27,15 @@ export default function Home() {
             <section id="aboutme" className="snap-center">
                 <About />
             </section>
-            <section id="experience" className="snap-center">
+            {/* <section id="experience" className="snap-center">
                 <Experience/>
+            </section> */}
+            <section id="projects" className="snap-center">
+                <Projects />
             </section>
-            <h2>Projects</h2>
-            <h2>Contact Me</h2>
+            <section id="contactme" className="snap-center">
+                <Contactme />
+            </section>
         </div>
     );
 }
