@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./globals.css";
 
-const inter = Barlow({ subsets:['latin'],weight:'500' });
+const inter = Barlow({ subsets:['latin'],weight:'400' });
 
 export const metadata: Metadata = {
   title: "Next App",

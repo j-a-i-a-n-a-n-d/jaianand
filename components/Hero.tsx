@@ -9,10 +9,10 @@ type Props = {}
 
 export default function Hero({ }: Props) {
     const [text] = useTypewriter({
-        words: ['...Hello', '...From', '...Typewriter', '...Hook!'],
+        words: ['Hi! I am Jai👋', '❤️ backend dev.', '❤️ Py', 'GenAI Enthusiast'],
         loop: 0,
-        delaySpeed: 1800,
-        deleteSpeed: 70
+        delaySpeed: 1000,
+        deleteSpeed: 150
     })
     return (
         <div className='flex flex-col items-center justify-center h-screen'>
@@ -26,7 +26,7 @@ export default function Hero({ }: Props) {
                 <div className='ping-animation'></div>
                 <div className='ping-animation-2'></div>
             </div>
-            <motion.div {...commonMotionProperties}>SOFTWARE DEVELOPER</motion.div>
+            <motion.div {...commonMotionProperties} className='uppercase tracking-widest text-lg text-[#aaaaaa]'>SOFTWARE ENGINEER</motion.div>
             <div className='text-center'>
                 {text}
                 <Cursor

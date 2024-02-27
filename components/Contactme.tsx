@@ -8,7 +8,7 @@ export default function Contactme({}: Props) {
   return (
     <>
     <div className="py-12 lg:pt-20 px-4 mx-auto max-w-screen-md mt-4">
-        <h2 className="mb-4 text-center">Contact Us</h2>
+        <h2 className="mb-4 text-center uppercase tracking-widest text-lg text-[#aaaaaa]">Contact Us</h2>
         <p className="mb-6 lg:mb-12 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
         <form action="#" className="space-y-4">
             <div>
