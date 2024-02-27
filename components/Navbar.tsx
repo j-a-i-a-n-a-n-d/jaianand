@@ -7,7 +7,7 @@ type Props = {}
 
 function Navbar({}: Props) {
     return (
-        <header className='sticky top-0 p-5 z-999 flex justify-center bg-[rgb(38,38,38)] text-[rgb(255,255,255)]'>
+        <header className='sticky top-0 px-8 py-3 z-999 flex justify-center bg-[rgb(38,38,38)] text-[rgb(255,255,255)]'>
         <div className='flex-1 justify-end md:flex md:flex-row md:items-center md:justify-between md:max-w-7xl'>
             <motion.div
                     initial={{ x: -500, opacity: 0, scale: 0.5 }}
