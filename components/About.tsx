@@ -35,9 +35,7 @@ export default function About({ }: Props) {
                         <motion.div {...commonMotionProperties} className='flex-1 uppercase flex-wrap tracking-wider text-lg'>Little Background About Me</motion.div>
                         <div className='flex flex-col gap-8 item-center md:items-start'>
                             <motion.div {...commonMotionProperties} className='text-center tracking-wide'>Final Year B.tech Undergraduate from Graphic Era University. Driven by a strong passion for technology and a desire to constantly scale up and brush up my skills. Having proven skills and exposure to latest tools and technologies with strong CS fundamentals. Aim to create innovative solutions to make an impact in the industry.</motion.div>
-                            <motion.div initial={{ x: -500, opacity: 0, scale: 0.5 }}
-                                whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.7, }}>
+                            <motion.div {...commonMotionProperties}>
                                 <a
                                 href="https://drive.google.com/file/d/18D0YnprLEy4dryyu6Qn8AMOyU1zcffFe/view?usp=sharing"
                                 target="_blank"
