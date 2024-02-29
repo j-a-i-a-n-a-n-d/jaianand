@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
-import { commonMotionProperties } from '@/helpers/motion-y';
+import { commonMotionProperties } from '../helpers/data';
 type Props = {}
 
 export default function About({ }: Props) {

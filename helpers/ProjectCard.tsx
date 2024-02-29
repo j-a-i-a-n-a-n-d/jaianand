@@ -9,7 +9,4 @@ export default function ProjectCard({}: Props) {
         <h5 className="mb-1 font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
         <p className="mb-2 text-gray-700 dark:text-gray-400">Here in reverse chronological order.</p>
     </div>
-</a>
-
-  )
-}
+</a>)}

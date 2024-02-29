@@ -4,7 +4,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import Image from 'next/image';
 import "../components/animation/ping.css";
 import { motion } from "framer-motion";
-import { commonMotionProperties } from '@/helpers/motion-y';
+import { commonMotionProperties } from '../helpers/data';
 type Props = {}
 
 export default function Hero({ }: Props) {

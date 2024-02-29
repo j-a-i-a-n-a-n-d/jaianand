@@ -2,8 +2,8 @@
 import Skills_1 from '@/helpers/Skills_1';
 import React from 'react'
 import {motion} from "framer-motion";
-import { commonMotionProperties } from '@/helpers/motion-y';
-import { skillData } from '@/helpers/skillData';
+import { commonMotionProperties } from "../helpers/data";
+import { skillData } from '@/helpers/data';
 
 type Props = {}
 
