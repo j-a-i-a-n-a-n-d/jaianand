@@ -16,4 +16,5 @@ export interface projectDataProperties {
     description: string,
     image_id: string,
     gihtub_link: string,
+    skills: string[],
 }

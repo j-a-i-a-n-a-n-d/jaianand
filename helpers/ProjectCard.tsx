@@ -1,12 +1,26 @@
 import React from 'react'
+import { projectDataProperties } from "./types";
+import { SocialIcon } from 'react-social-icons';
+type Props = {
+  props: projectDataProperties
+}
 
-type Props = {}
-
-export default function ProjectCard({}: Props) {
-  return ( <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <img className="object-cover w-full rounded-t-lg h-80 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/profile.jpg" alt=""/>
-    <div className="flex flex-col justify-between p-4 leading-normal">
-        <h5 className="mb-1 font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p className="mb-2 text-gray-700 dark:text-gray-400">Here in reverse chronological order.</p>
+export default function ProjectCard({props}: Props) {
+  return (
+    <div className="max-w-sm rounded-xl overflow-hidden h-[450px] bg-[#383838] hover:bg-[#262626] hover:scale-105 transition duration-300 hover:shadow-md hover:shadow-[#878686] cursor-pointer">
+      <img className="w-full transition duration-300 hover:scale-110" src={props.image_id} alt="Image" />
+      <div className="px-6 py-2">
+        <div className=" flex justify-between font-bold text-xl mb-2 uppercase items-center">
+          <span>{props.title}</span>
+          <SocialIcon bgColor="#383838" url={props.gihtub_link} className='transition duration-200 hover:scale-125' />
+        </div>
+        <p className="text-white text-base">
+          {props.description}
+        </p>
+      </div>
+      <div className="px-6 pt-2 pb-4">
+        {props.skills.map((item) => <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-3 transition duration-200 hover:scale-110">{ item}</span> ) }
+      </div>
     </div>
-</a>)}
+  )
+}
