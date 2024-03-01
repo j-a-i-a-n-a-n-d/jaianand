@@ -24,11 +24,11 @@ function Navbar({}: Props) {
                     animate={{ y: 0, opacity: 1, scale: 1 }}
                     transition={{duration:0.7,}}
                     className='flex justify-end'>
-                    <SocialIcon url="https://www.leetcode.com/anand_jai/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
-                    <SocialIcon url="https://www.github.com/j-a-i-a-n-a-n-d/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon url='https://www.linkedin.com/in/jaiiianand/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon url='https://www.instagram.com/j_a_i_a_n_a_n_d/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon url='https://www.twitter.com/jaianand5789/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
+                    <SocialIcon target="_blank" url="https://www.leetcode.com/anand_jai/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
+                    <SocialIcon target="_blank" url="https://www.github.com/j-a-i-a-n-a-n-d/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
+                    <SocialIcon target="_blank" url='https://www.linkedin.com/in/jaiiianand/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
+                    <SocialIcon target="_blank" url='mailto:jaianand5789@gmail.com' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
+                    <SocialIcon target="_blank" url='https://www.twitter.com/jaianand5789/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
             </motion.div>
         </div>
         </header>

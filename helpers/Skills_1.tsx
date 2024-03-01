@@ -1,6 +1,5 @@
 // Import necessary libraries and styles
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { skillDataProperties } from './types';
 type Props = {
   props: skillDataProperties;
@@ -11,12 +10,13 @@ function Skills_1({ props }: Props) {
   const progressBarStyles = {
     clipPath: `polygon(50% 0%, 100% 0%, 100% ${overlayHeight}, 0% ${overlayHeight}, 0% 0%)`,
     transform: `rotate(180deg)`,
-    opacity: 0.92
+    'opacity': 0.92,
+    
   };
 
   return (
-    <motion.div
-      className='relative hover:scale-110 transition duration-300 hover:shadow-lg hover:shadow-[#878686] rounded-full'
+    <div
+      className='relative hover:scale-125 transition duration-500 hover:shadow-lg hover:shadow-[#878686] rounded-full'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -38,7 +38,7 @@ function Skills_1({ props }: Props) {
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }
 
