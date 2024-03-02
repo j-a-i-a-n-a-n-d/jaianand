@@ -27,7 +27,7 @@ export default function About({ }: Props) {
                     className='mt-24 uppercase tracking-widest text-xl text-[#aaaaaa] shadow-sm shadow-[#878686]'>About Me</motion.div>
                 <div className='flex flex-col gap-8 items-center md:flex-row md:justify-around md:gap-16'>
                     <Image
-                        src="/about.jpg"
+                        src="/jaiabout.jpeg"
                         width={isSmallScreen ? 175 : 275}
                         height={isSmallScreen ? 175 : 275}
                         alt="About Me"
