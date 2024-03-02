@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Barlow({ subsets:['latin'],weight:'400' });
 
 export const metadata: Metadata = {
-  title: "Next App",
-  description: "Portfolio Jai Anand",
+  title: "Jai Anand",
+  description: "Explore the projects and skills of Jai Anand, a skilled software engineer. Check out the latest updates and contact information.",
 };
 
 export default function RootLayout({
@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
+      
     </html>
   );
 }
