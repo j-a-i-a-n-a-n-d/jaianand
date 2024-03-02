@@ -2,10 +2,11 @@ import React from 'react'
 import { projectDataProperties } from "./types";
 import { SocialIcon } from 'react-social-icons';
 type Props = {
-  props: projectDataProperties
+  props: projectDataProperties,
+  key : number
 }
 
-export default function ProjectCard({props}: Props) {
+export default function ProjectCard({props,key}: Props) {
   return (
     <div className="max-w-sm rounded-xl overflow-hidden h-[450px] bg-[#383838] hover:bg-[#262626] hover:scale-105 transition duration-300 hover:shadow-md hover:shadow-[#878686] cursor-pointer">
       <img className="w-full transition duration-300 hover:scale-110" src={props.image_id} alt="Image" />
