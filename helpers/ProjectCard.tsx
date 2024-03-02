@@ -13,7 +13,7 @@ export default function ProjectCard({props,key}: Props) {
       <div className="px-6 py-2">
         <div className=" flex justify-between font-bold text-xl mb-2 uppercase items-center">
           <span>{props.title}</span>
-          <SocialIcon bgColor="#383838" url={props.gihtub_link} target="_blank" className='transition duration-200 hover:scale-125' />
+          <SocialIcon bgColor="#383838" url={props.gihtub_link} target="_blank" className='transition duration-200 hover:scale-125 -z-0' />
         </div>
         <p className="text-white text-base">
           {props.description}
