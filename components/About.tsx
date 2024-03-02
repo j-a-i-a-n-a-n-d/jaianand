@@ -36,7 +36,7 @@ export default function About({ }: Props) {
                         <motion.div {...commonMotionProperties} className='flex-1 uppercase flex-wrap tracking-wider text-lg'>Little Background About Me</motion.div>
                         <div className='flex flex-col gap-5 item-center md:items-start'>
                             <motion.div {...commonMotionProperties} className='text-center tracking-wide'>Final Year B.tech Undergraduate from Graphic Era University. Driven by a strong passion for technology and a desire to constantly scale up and brush up my skills. Having proven skills and exposure to latest tools and technologies with strong CS fundamentals. Aim to create innovative solutions to make an impact in the industry.</motion.div>
-                            <div  className='w-full flex flex-row justify-between items-center'>
+                            <div  className='w-full flex flex-col md:flex-row justify-between items-center gap-8'>
                                 <motion.div {...commonMotionProperties}><a
                                     href="https://drive.google.com/file/d/18D0YnprLEy4dryyu6Qn8AMOyU1zcffFe/view?usp=sharing"
                                     target="_blank"
@@ -44,7 +44,7 @@ export default function About({ }: Props) {
                                         <button className='bg-[#3e3d3d] hover:bg-[rgb(36,36,36)] text-white font-normal py-2 px-4 rounded-md hover:scale-110 transition duration-300 hover:border-[0.5px] '>View Resume</button>
                                 </a></motion.div>
                                 <motion.div
-                                    className='flex gap-4'>
+                                    className='flex gap-1 md:gap-4'>
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://www.instagram.com/j_a_i_a_n_a_n_d/'/>
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://open.spotify.com/user/jaianand' />
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://stackoverflow.com/users/17810807/devvie' />

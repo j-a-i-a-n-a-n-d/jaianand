@@ -82,7 +82,7 @@ export default function Contactme({ }: Props) {
               </form>
               <ToastContainer
                 position="bottom-right"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -92,8 +92,8 @@ export default function Contactme({ }: Props) {
                 pauseOnHover
                 theme="dark"/>
     </div>
-    <div className="w-full mx-auto max-w-screen-xl flex items-center justify-between my-0">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">Made by Jai Anand. Find the source code on <a href='https://github.com/j-a-i-a-n-a-n-d/jaianand' target='_blank' className='underline'>github</a></span>
+    <div className="w-11/12 mx-auto max-w-screen-xl flex items-center justify-between my-0">
+        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">Made by Jai Anand. Find code on <a href='https://github.com/j-a-i-a-n-a-n-d/jaianand' target='_blank' className='underline'>github</a></span>
         <ul className="flex flex-wrap items-center mt-0 text-sm font-medium text-gray-500 dark:text-gray-400">
             <li>
                 <SocialIcon className="hover:scale-110 hover:shadow-md hover:rounded-full transition duration-200" target="_blank" url="http://www.github.com/j-a-i-a-n-a-n-d/" fgColor="gray" bgColor="transparent"/>

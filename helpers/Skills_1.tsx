@@ -22,10 +22,10 @@ function Skills_1({ props }: Props) {
     >
       <img
         src={props.image_id}
-        className='cursor-pointer flex-shrink-0 text-2xl w-24 h-24 object-contain rounded-full'
+        className='cursor-pointer flex-shrink-0 text-2xl w-20 h-20 md:w-24 md:h-24 object-contain rounded-full'
       />
       {isHovered && (
-        <div className='absolute top-0 left-0 w-24 h-24'>
+        <div className='absolute top-0 left-0 w-20 h-20 md:w-24 md:h-24'>
           <div
             className='rounded-full w-full h-full bg-[rgb(38,38,38)]'
             style={progressBarStyles}
