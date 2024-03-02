@@ -9,7 +9,7 @@ type Props = {}
 
 export default function Skills({}: Props) {
   return (
-    <div className='flex flex-col h-screen gap-14 md:gap-12 items-center'>
+    <div className='flex flex-col h-screen gap-14 md:gap-6 items-center'>
       <motion.div className='uppercase mt-20 tracking-widest text-xl text-[#aaaaaa] shadow-sm shadow-[#878686]' {...commonMotionProperties}>
         Skills</motion.div>
         <motion.div className='mx-8 uppercase text-lg tracking-wider text-[#aaaaaa] flex flex-col items-center'><span>My TechStack,</span><strong> but I&apos;m open to Learn</strong> 🚀🚀🚀</motion.div>
