@@ -21,7 +21,7 @@ export default function About({ }: Props) {
     }, [isSmallScreen]);
     return (
         <div className='flex justify-center h-screen'>
-            <div className='flex flex-col gap-8 md:gap-20 items-center md:max-w-6xl'>
+            <div className='flex flex-col gap-16 md:gap-18 2xl:gap-32 items-center md:max-w-6xl'>
                 <motion.div
                     {...commonMotionProperties}
                     className='mt-24 uppercase tracking-widest text-xl text-[#aaaaaa] shadow-sm shadow-[#878686]'>About Me</motion.div>
@@ -32,24 +32,25 @@ export default function About({ }: Props) {
                         height={isSmallScreen ? 175 : 275}
                         alt="About Me"
                         className='rounded-2xl transition duration-300 ease-in-out hover:scale-110 hover:shadow-md hover:opacity-90 md:hover:-rotate-12 sm:w-150 sm:h-150 hover:shadow-[#878686]' />
-                    <div className='flex flex-col gap-6 p-7 items-center md:item-left md:gap-12'>
-                        <motion.div {...commonMotionProperties} className='flex-1 uppercase flex-wrap tracking-wider text-lg'>Little Background About Me</motion.div>
-                        <div className='flex flex-col gap-5 item-center md:items-start'>
-                            <motion.div {...commonMotionProperties} className='text-center tracking-wide'>Final Year B.tech Undergraduate from Graphic Era University. Driven by a strong passion for technology and a desire to constantly scale up and brush up my skills. Having proven skills and exposure to latest tools and technologies with strong CS fundamentals. Aim to create innovative solutions to make an impact in the industry.</motion.div>
-                            <div  className='w-full flex flex-col md:flex-row justify-between items-center gap-8'>
-                                <motion.div {...commonMotionProperties}><a
-                                    href="https://drive.google.com/file/d/18D0YnprLEy4dryyu6Qn8AMOyU1zcffFe/view?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
+                    <div className='flex flex-col gap-3 px-9 items-center md:item-left md:gap-12'>
+                        <div  className='flex-1 uppercase flex-wrap tracking-wider text-lg'>Little Background About Me</div>
+                        <div className='flex flex-col gap-8 item-center md:items-start'>
+                            <div className='text-center md:text-justify tracking-wide text-sm md:text-base'>B.tech Undergraduate from Graphic Era University. Driven by strong passion for technology and desire to constantly scale up and brush up my skills. Having proven skills & exposure to latest tools and tech with strong CS fundamentals. Aim to create innovative solutions to make an impact in the industry.</div>
+                            <div  className='w-full flex flex-col md:flex-row justify-between items-center gap-6'>
+                                <motion.div {...commonMotionProperties}>
+                                    <a
+                                        href="https://drive.google.com/file/d/18D0YnprLEy4dryyu6Qn8AMOyU1zcffFe/view?usp=sharing"
+                                        target=""
+                                        rel="noopener noreferrer">
                                         <button className='bg-[#3e3d3d] hover:bg-[rgb(36,36,36)] text-white font-normal py-2 px-4 rounded-md hover:scale-110 transition duration-300 hover:border-[0.5px] '>View Resume</button>
-                                </a></motion.div>
-                                <motion.div
-                                    className='flex gap-1 md:gap-4'>
+                                    </a>
+                                </motion.div>
+                                <div className='flex gap-1 md:gap-4'>
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://www.instagram.com/j_a_i_a_n_a_n_d/'/>
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://open.spotify.com/user/jaianand' />
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray" url='https://stackoverflow.com/users/17810807/devvie' />
                                     <SocialIcon target="_blank" className="hover:scale-125 hover:shadow-md hover:rounded-full transition duration-200" bgColor="transparent" fgColor="gray "url='https://medium.com/@jaianand5789' />
-                                </motion.div>
+                                </div>
                             </div>
                         </div>
                     </div>
