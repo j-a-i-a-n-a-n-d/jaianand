@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Barlow } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
-const inter = Barlow({ subsets:['latin'],weight:'400' });
+const outfit = Outfit({ subsets:['latin'] });
 
 export const metadata: Metadata = {
   title: "Jai Anand",
-  description: "Explore the projects and skills of Jai Anand, a skilled software engineer. Check out the latest updates and contact information.",
+  description: "Explore the projects and skills of Jai Anand, a skilled software engineer.",
 };
 
 export default function RootLayout({
@@ -16,8 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      
+      <body className={outfit.className} suppressHydrationWarning>
+        <CustomCursor />
+        <AnimatedBackground />
+        {children}
+      </body>
     </html>
   );
 }

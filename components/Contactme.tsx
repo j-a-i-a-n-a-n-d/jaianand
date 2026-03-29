@@ -1,107 +1,92 @@
 "use client";
-import React, { useState,ChangeEvent, FormEvent} from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { motion } from "framer-motion";
 import { commonMotionProperties } from '@/helpers/data';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-type Props = {}
-
-export default function Contactme({ }: Props) {
-    
+export default function Contactme() {
     const [formData, setFormData] = useState({ email: '', subject: '', message: '' });
     
-    const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });};
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.id]: e.target.value });
+    };
     
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        setFormData({ email:"",subject: "",message: ""});
         e.preventDefault();
         try {
-            // console.log(formData);
             const response = await fetch('/api/emailHandler', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: formData.email,
-                    message: formData.message,
-                    subject: formData.subject
-                }),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
             });
-            // console.log("Frontend", formData);
             const data = await response.json();
-            if (data.success === true) { 
-            toast.success(data.data, {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark"
-            });
+            
+            setFormData({ email: "", subject: "", message: "" });
+            
+            if (data.success) { 
+                toast.success(data.data, {
+                    position: "bottom-right", autoClose: 5000, theme: "dark"
+                });
             } else {
-                toast.error("Error", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark"
-                    });
-        }
+                toast.error("Error sending message", {
+                    position: "bottom-right", autoClose: 5000, theme: "dark"
+                });
+            }
         } catch (error) {
             console.error(error);
         }
     };
-  return (
-    <div className='h-screen flex flex-col items-center justify-between pt-24'>
-        <div className="px-4 mx-auto max-w-screen-md">
-              <motion.h2 {...commonMotionProperties} className="mb-16 md:mb-4 text-center uppercase tracking-widest text-xl text-[#aaaaaa]"><span className='shadow-sm shadow-[#878686]'>Contact ME</span></motion.h2>
-              <motion.p {...commonMotionProperties} className="mb-6 font-light text-center text-gray-500 dark:text-gray-400 sm:text-md tracking-wider">Wanna share a feedback? Would Like to work with me? Wanna to reach out to me? </motion.p>
-        <form onSubmit={handleSubmit} className="space-y-2">
-            <div>
-                <label {...commonMotionProperties} htmlFor="email" className="block mb-2 text-md font-base text-sm text-gray-900 dark:text-gray-300">Your email</label>
-                <input type="email" id="email" value={formData.email} onChange={handleChange} className="focus:outline-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-[#535353] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light hover:scale-105 transition duration-300 hover:border-rose-50" placeholder="johndoe@gmail.com" required />
+
+    return (
+        <div className='flex flex-col items-center justify-between min-h-[80vh] w-full pt-20 pb-12 relative'>
+            <div className="px-4 mx-auto w-full max-w-4xl flex-1 flex flex-col justify-center">
+                <motion.div {...commonMotionProperties} className="mb-12 text-center uppercase tracking-widest text-2xl text-primary font-black bg-card/60 px-8 py-3 rounded-xl border border-white/5 backdrop-blur-md shadow-[0_0_30px_rgba(128,0,32,0.3)] self-center mx-auto w-max">
+                    Contact Me
+                </motion.div>
+                
+                <motion.p {...commonMotionProperties} className="mb-12 font-light text-center text-secondary md:text-lg tracking-wide max-w-2xl mx-auto">
+                    Got an idea? Need help with an ambitious project? Or just want to say hi? I'd love to hear from you.
+                </motion.p>
+                
+                <form onSubmit={handleSubmit} className="space-y-6 bg-card/40 backdrop-blur-xl border border-white/5 p-8 rounded-[40px] shadow-2xl relative">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-burgundy/20 rounded-full blur-[80px] -z-10"></div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-primary">Your email</label>
+                            <input type="email" id="email" value={formData.email} onChange={handleChange} className="w-full focus:outline-none bg-zinc-900/60 border border-white/10 text-primary text-sm rounded-xl focus:ring-burgundy focus:border-burgundy block p-3 transition duration-300 hover:border-burgundy/40 hover:bg-zinc-800/80 shadow-inner" placeholder="hello@example.com" required />
+                        </div>
+                        <div>
+                            <label htmlFor="subject" className="block mb-2 text-sm font-medium text-primary">Subject</label>
+                            <input type="text" id="subject" value={formData.subject} onChange={handleChange} className="w-full focus:outline-none bg-zinc-900/60 border border-white/10 text-primary text-sm rounded-xl focus:ring-burgundy focus:border-burgundy block p-3 transition duration-300 hover:border-burgundy/40 hover:bg-zinc-800/80 shadow-inner" placeholder="What is this regarding?" required />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-primary">Your message</label>
+                        <textarea id="message" rows={5} value={formData.message} onChange={handleChange} className="w-full focus:outline-none bg-zinc-900/60 border border-white/10 text-primary text-sm rounded-xl focus:ring-burgundy focus:border-burgundy block p-4 transition duration-300 hover:border-burgundy/40 hover:bg-zinc-800/80 shadow-inner resize-none" placeholder="Let's build something great together..."></textarea>
+                    </div>
+                    
+                    <motion.button {...commonMotionProperties} type="submit" className="w-full md:w-auto py-3 px-8 text-sm font-bold text-white rounded-full bg-burgundy hover:bg-burgundy/80 focus:ring-4 focus:ring-burgundy/30 transition-all duration-300 shadow-lg shadow-burgundy/20">
+                        Send Message
+                    </motion.button>
+                </form>
             </div>
-            <div>
-                <label {...commonMotionProperties} htmlFor="subject" className="block mb-2 text-md font-base text-sm text-gray-900 dark:text-gray-300">Subject</label>
-                <input type="text" id="subject" value={formData.subject} onChange={handleChange} className="focus:outline-none block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-[#535353] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light hover:scale-105 transition duration-300 hover:border-rose-50" placeholder="Subject" required />
+            
+            {/* Footer embedded in contact section */}
+            <div className="w-full max-w-7xl px-4 mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <span className="text-sm text-secondary/70 text-center md:text-left">
+                    &copy; 2026 Jai Anand. Building the modern web. 
+                    <a href='https://github.com/j-a-i-a-n-a-n-d/jaianand' target='_blank' className='underline ml-1 hover:text-white transition-colors'>Source Code</a>
+                </span>
+                <div className="flex gap-4">
+                    <SocialIcon className="hover:scale-125 transition-transform duration-300 opacity-70 hover:opacity-100" target="_blank" url="https://github.com/j-a-i-a-n-a-n-d/" fgColor="currentColor" bgColor="transparent" style={{ height: 32, width: 32 }} />
+                    <SocialIcon className="hover:scale-125 transition-transform duration-300 opacity-70 hover:opacity-100" target="_blank" url='https://www.linkedin.com/in/jaiiianand/' fgColor="currentColor" bgColor="transparent" style={{ height: 32, width: 32 }} />
+                </div>
             </div>
-            <div className="sm:col-span-2">
-                <label {...commonMotionProperties} htmlFor="message" className="block mb-2 text-md font-base text-sm text-gray-900 dark:text-gray-300">Your message</label>
-                <textarea id="message" rows={4} value={formData.message} onChange={handleChange} className="focus:outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-[#535353] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 hover:scale-105 transition duration-300 hover:border-rose-50" placeholder="Leave a feedback..."></textarea>
-            </div>
-                  <button {...commonMotionProperties} type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#151515] sm:w-fit hover:bg-black focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-800 transition duration-200">Send message</button>
-              </form>
-              <ToastContainer
-                position="bottom-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"/>
-    </div>
-    <div className="w-11/12 mx-auto max-w-screen-xl flex items-center justify-between my-0">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">Made by Jai Anand. Find code on <a href='https://github.com/j-a-i-a-n-a-n-d/jaianand' target='_blank' className='underline'>github</a></span>
-        <ul className="flex flex-wrap items-center mt-0 text-sm font-medium text-gray-500 dark:text-gray-400">
-            <li>
-                <SocialIcon className="hover:scale-110 hover:shadow-md hover:rounded-full transition duration-200" target="_blank" url="http://www.github.com/j-a-i-a-n-a-n-d/" fgColor="gray" bgColor="transparent"/>
-            </li>
-            <li>
-                <SocialIcon className="hover:scale-110 hover:shadow-md hover:rounded-full transition duration-200" target="_blank" url='https://www.linkedin.com/in/jaiiianand/' fgColor="gray" bgColor="transparent"/>
-            </li>
-        </ul>
-    </div>
-    </div>)
+            <ToastContainer position="bottom-right" autoClose={3000} theme="dark" hideProgressBar={false} />
+        </div>
+    )
 }

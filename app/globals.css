@@ -8,23 +8,29 @@
   }
 }
 
+/* Modern scrollbar that looks 2026-fresh */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
+  height: 6px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #333333;
+  background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #796a15;
+  background: #3f3f46; /* zinc-700 */
+  border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #52525b; /* zinc-600 */
+}
+
+/* Base text selection styles for elegant typography */
+::selection {
+  background: rgba(139, 92, 246, 0.3); /* subtle purple */
+  color: white;
 }
 
 html {
@@ -32,4 +38,12 @@ html {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #000000;
+  color: #fafafa;
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }

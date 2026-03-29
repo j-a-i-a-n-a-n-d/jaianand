@@ -18,3 +18,12 @@ export interface projectDataProperties {
     gihtub_link: string,
     skills: string[],
 }
+
+export interface ExperienceDataProperties {
+    id: number;
+    title: string;
+    company: string;
+    date: string;
+    description: string[];
+    skills: string[];
+}

@@ -1,40 +1,40 @@
 "use client"
 import React from 'react'
 import { SocialIcon } from 'react-social-icons';
-import  Link   from 'next/link';
-import { motion }  from "framer-motion";
-type Props = {}
+import Link from 'next/link';
+import { motion } from "framer-motion";
 
-function Navbar({}: Props) {
+export default function Navbar() {
     return (
-        <header className='sticky top-0 px-8 py-3 z-10 flex justify-center bg-[rgb(38,38,38)] text-[rgb(255,255,255)]'>
-        <div className='flex-1 justify-end md:flex md:flex-row md:items-center md:justify-between md:max-w-7xl'>
-            <motion.div
-                    initial={{ x: -500, opacity: 0, scale: 0.5 }}
-                    animate={{ x: 0, opacity: 1, scale: 1 }}
-                    transition={{duration:0.7,}}
-                    className='hidden text-gray-300 md:flex md:flex-row md:gap-10 md:justify-around'>
-                    <Link href="#about" className='text-lg hover:text-[#d5ca00] hover:scale-125 hover:shadow-md transition duration-200'>About Me</Link>
-                    <Link href="#skills" className='text-lg hover:text-[#d5ca00] hover:scale-125 hover:shadow-md transition duration-200'>Skills</Link>
-                    <Link href="#projects" className='text-lg hover:text-[#d5ca00] hover:scale-125 hover:shadow-md transition duration-200'>Projects</Link>
-                    <Link href="#contact" className='text-lg hover:text-[#d5ca00] hover:scale-125 hover:shadow-md transition duration-200'>Contact Me</Link>
-            </motion.div>
-            <motion.div
-                    initial={{ y: -500, opacity: 0, scale: 0.5 }}
-                    animate={{ y: 0, opacity: 1, scale: 1 }}
-                    transition={{duration:0.7,}}
-                    className='flex justify-end'>
-                    <SocialIcon target="_blank" url="https://www.leetcode.com/anand_jai/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
-                    <SocialIcon target="_blank" url="https://www.github.com/j-a-i-a-n-a-n-d/" fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon target="_blank" url='https://www.linkedin.com/in/jaiiianand/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon target="_blank" url='mailto:jaianand5789@gmail.com' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200'/>
-                    <SocialIcon target="_blank" url='https://www.twitter.com/jaianand5789/' fgColor="gray" bgColor="transparent" className='hover:scale-150 hover:shadow-md hover:rounded-full transition duration-200' />
-            </motion.div>
-        </div>
+        <header className='fixed top-0 w-full px-8 py-4 z-50 flex justify-center backdrop-blur-md bg-background/80 border-b border-white/5 transition-all duration-300'>
+            <div className='flex items-center justify-between w-full max-w-7xl'>
+                
+                {/* Navigation Links */}
+                <motion.div
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.7 }}
+                    className='hidden md:flex flex-row gap-8 items-center text-sm font-medium tracking-wide text-secondary uppercase'>
+                    <Link href="#about" className='hover:text-accent hover:scale-105 transition duration-300'>About</Link>
+                    <Link href="#experience" className='hover:text-accent hover:scale-105 transition duration-300'>Experience</Link>
+                    <Link href="#skills" className='hover:text-accent hover:scale-105 transition duration-300'>Skills</Link>
+                    <Link href="#projects" className='hover:text-accent hover:scale-105 transition duration-300'>Projects</Link>
+                    <Link href="/blogs" className='hover:text-accent hover:scale-105 transition duration-300'>Blogs</Link>
+                </motion.div>
+
+                {/* Social Icons */}
+                <motion.div
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.7 }}
+                    className='flex justify-end gap-1'>
+                    <SocialIcon target="_blank" url="https://www.leetcode.com/anand_jai/" fgColor="currentColor" bgColor="transparent" className='text-secondary hover:text-accent hover:scale-110 transition duration-300' style={{ height: 42, width: 42 }} />
+                    <SocialIcon target="_blank" url="https://www.github.com/j-a-i-a-n-a-n-d/" fgColor="currentColor" bgColor="transparent" className='text-secondary hover:text-accent hover:scale-110 transition duration-300' style={{ height: 42, width: 42 }} />
+                    <SocialIcon target="_blank" url='https://www.linkedin.com/in/jaiiianand/' fgColor="currentColor" bgColor="transparent" className='text-secondary hover:text-accent hover:scale-110 transition duration-300' style={{ height: 42, width: 42 }} />
+                    <SocialIcon target="_blank" url='mailto:jaianand5789@gmail.com' fgColor="currentColor" bgColor="transparent" className='text-secondary hover:text-accent hover:scale-110 transition duration-300' style={{ height: 42, width: 42 }} />
+                    <SocialIcon target="_blank" url='https://www.twitter.com/jaianand5789/' fgColor="currentColor" bgColor="transparent" className='text-secondary hover:text-accent hover:scale-110 transition duration-300' style={{ height: 42, width: 42 }} />
+                </motion.div>
+            </div>
         </header>
-        
     )
 }
-
-export default Navbar
-

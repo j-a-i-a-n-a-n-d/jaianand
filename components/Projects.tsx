@@ -2,16 +2,29 @@
 import ProjectCard from '@/helpers/ProjectCard';
 import React from 'react';
 import { motion } from "framer-motion";
-import { commonMotionProperties } from '../helpers/data';
-import { projectData } from "../helpers/data";
+import { commonMotionProperties, projectData } from '@/helpers/data';
+
 const Projects = () => {
-    
     return (
-        <div className='flex flex-col h-screen gap-2 justify-center items-center'>
-            <motion.div {...commonMotionProperties} className='uppercase mt-24 tracking-widest text-xl text-[#aaaaaa] shadow-sm shadow-[#878686] '>Projects</motion.div>
-            <div className="p-6 max-w-4xl  mt-4 flex flex-row gap-12 flex-wrap max-h-screen justify-center items-center overflow-y-auto">
-                {projectData.map((data) => <ProjectCard key={data.id} props={data} />)}
+        <div className='flex flex-col items-center justify-center w-full px-4 md:max-w-7xl mx-auto py-12'>
+            <motion.div {...commonMotionProperties} className="uppercase tracking-widest text-2xl text-primary font-black mb-16 bg-card/60 px-8 py-3 rounded-xl border border-white/5 backdrop-blur-md shadow-[0_0_30px_rgba(128,0,32,0.3)] text-center">
+                Featured Projects
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full justify-items-center">
+                {projectData.map((data, index) => (
+                    <motion.div
+                        key={data.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <ProjectCard props={data} />
+                    </motion.div>
+                ))}
             </div>
-        </div>);
+        </div>
+    );
 };                    
 export default Projects;
