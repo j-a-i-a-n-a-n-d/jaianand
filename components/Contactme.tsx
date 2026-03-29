@@ -47,7 +47,7 @@ export default function Contactme() {
                 </motion.div>
                 
                 <motion.p {...commonMotionProperties} className="mb-12 font-light text-center text-secondary md:text-lg tracking-wide max-w-2xl mx-auto">
-                    Got an idea? Need help with an ambitious project? Or just want to say hi? I'd love to hear from you.
+                    Got an idea? Need help with an ambitious project? Or just want to say hi? I&apos;d love to hear from you.
                 </motion.p>
                 
                 <form onSubmit={handleSubmit} className="space-y-6 bg-card/40 backdrop-blur-xl border border-white/5 p-8 rounded-[40px] shadow-2xl relative">

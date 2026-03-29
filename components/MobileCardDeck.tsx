@@ -126,7 +126,7 @@ export default function MobileCardDeck() {
                 <div className="w-full shrink-0 flex flex-col items-center justify-center py-2.5 bg-zinc-950/80 border-b border-white/20 sticky top-0 z-50">
                    <div className="w-12 h-1.5 mb-1.5 bg-white/40 rounded-full cursor-grab active:cursor-grabbing"></div>
                    <div className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-accent to-burgundy drop-shadow-md">
-                      {String(index + 1).padStart(2, '0')} // {section.title}
+                      {String(index + 1).padStart(2, '0')} {"//"} {section.title}
                    </div>
                 </div>
 

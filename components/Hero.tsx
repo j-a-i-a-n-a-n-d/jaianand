@@ -33,7 +33,7 @@ export default function Hero() {
                     </motion.div>
 
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary leading-[1.1] mb-2 tracking-tighter w-full">
-                        Hi, I'm <br className="hidden sm:block lg:block" />
+                        Hi, I&apos;m <br className="hidden sm:block lg:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-burgundy drop-shadow-[0_0_20px_rgba(139,92,246,0.3)]">Jai Anand</span>
                     </h1>
 
@@ -61,7 +61,7 @@ export default function Hero() {
                         className="flex flex-wrap gap-4 items-center justify-center lg:justify-start"
                     >
                         <a href="#contact" className="px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-primary text-black font-bold text-base sm:text-lg hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300">
-                            Let's Talk
+                            Let&apos;s Talk
                         </a>
                         <a href="#projects" className="px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-card border border-white/10 text-primary font-bold text-base sm:text-lg hover:bg-zinc-800 hover:border-burgundy/50 transition-all duration-300">
                             View Work
