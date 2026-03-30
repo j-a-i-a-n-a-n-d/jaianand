@@ -1,7 +1,34 @@
-import React from 'react'
+import React from 'react';
 import { projectDataProperties } from "./types";
 import { SocialIcon } from 'react-social-icons';
-import Image from 'next/image';
+import { 
+  SiDjango, SiPython, SiReact, SiNextdotjs, SiTypescript, 
+  SiTailwindcss, SiFramer, SiOpencv, SiSendgrid, SiBootstrap, 
+  SiSocketdotio, SiExpress, SiMongodb
+} from 'react-icons/si';
+import { VscAzure } from 'react-icons/vsc';
+
+const getProjectSkillIcon = (skillName: string) => {
+    switch (skillName) {
+        case "Django REST": return <SiDjango className="text-[#092E20] text-sm mr-1.5" />;
+        case "Python": return <SiPython className="text-[#3776AB] text-sm mr-1.5" />;
+        case "React": return <SiReact className="text-[#61DAFB] text-sm mr-1.5" />;
+        case "OpenAI": return <span className="text-white text-sm mr-1.5">●</span>;
+        case "Azure": return <VscAzure className="text-[#0078D4] text-sm mr-1.5" />;
+        case "Nextjs": return <SiNextdotjs className="text-white text-sm mr-1.5 bg-black rounded-full" />;
+        case "Tailwind": return <SiTailwindcss className="text-[#06B6D4] text-sm mr-1.5" />;
+        case "TypeScript": return <SiTypescript className="text-[#3178C6] text-sm mr-1.5" />;
+        case "Framer Motion": return <SiFramer className="text-[#0055FF] text-sm mr-1.5 bg-white rounded-full p-px" />;
+        case "OpenCV": return <SiOpencv className="text-[#5C3EE8] text-sm mr-1.5" />;
+        case "Sendgrid": return <SiSendgrid className="text-[#1A82E2] text-sm mr-1.5" />;
+        case "Paramiko": return <SiPython className="text-[#3776AB] text-sm mr-1.5" />; // python subset
+        case "Bootstrap": return <SiBootstrap className="text-[#7952B3] text-sm mr-1.5" />;
+        case "Socket.io": return <SiSocketdotio className="text-white text-sm mr-1.5" />;
+        case "ExpressJS": return <SiExpress className="text-white text-sm mr-1.5" />;
+        case "MongoDB": return <SiMongodb className="text-[#47A248] text-sm mr-1.5" />;
+        default: return <span className="text-secondary/30 text-[10px] mr-1.5">◆</span>;
+    }
+}
 
 type Props = {
   props: projectDataProperties
@@ -31,7 +58,8 @@ export default function ProjectCard({props}: Props) {
         
         <div className="mt-auto flex flex-wrap gap-2">
           {props.skills.map((item) => (
-             <span key={item} className="px-3 py-1.5 bg-white/5 hover:bg-burgundy/20 border border-white/5 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:border-burgundy/30 transition-all duration-300">
+             <span key={item} className="flex items-center px-3 py-1.5 bg-zinc-900/90 border border-white/5 shadow-inner rounded-xl text-xs font-semibold text-zinc-300 hover:text-white hover:border-burgundy/30 hover:bg-zinc-800 transition-all duration-300">
+               {getProjectSkillIcon(item)}
                {item}
              </span>
           ))}

@@ -97,6 +97,54 @@ export const skillData: skillDataProperties[] = [
         proficiency: 50,
         animationDirection: true,
     },
+    {
+        id: 17,
+        image_id: "/skills/java.png",
+        proficiency: 85,
+        animationDirection: false,
+    },
+    {
+        id: 18,
+        image_id: "/skills/springboot.png",
+        proficiency: 80,
+        animationDirection: true,
+    },
+    {
+        id: 19,
+        image_id: "/skills/kubernetes.png",
+        proficiency: 75,
+        animationDirection: false,
+    },
+    {
+        id: 20,
+        image_id: "/skills/aws.png",
+        proficiency: 85,
+        animationDirection: true,
+    },
+    {
+        id: 21,
+        image_id: "/skills/linux.png",
+        proficiency: 90,
+        animationDirection: false,
+    },
+    {
+        id: 22,
+        image_id: "/skills/pinecone.png",
+        proficiency: 70,
+        animationDirection: true,
+    },
+    {
+        id: 23,
+        image_id: "/skills/ecto.png",
+        proficiency: 75,
+        animationDirection: false,
+    },
+    {
+        id: 24,
+        image_id: "/skills/typescript.png",
+        proficiency: 85,
+        animationDirection: true,
+    },
 ]
 
 export const commonMotionProperties: CommonMotionProperties = {
@@ -110,50 +158,50 @@ export const projectData: projectDataProperties[] = [
     {
         id: 5,
         title: "Fashion GPT",
-        description: "A GenAI based fashion recommendation system using GPT-3.5 and azure, part of Flipkart Grid 5.0.",
+        description: "Engineered a high-performance GenAI fashion recommendation engine utilizing GPT-3.5 APIs and Azure cloud infrastructure as part of the Flipkart Grid 5.0 initiative.",
         image_id: "/projects/fashiongpt.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d/FlipkartGrid5.0",
-        skills: ["#Django REST", "#Python", "#React", "#OpenAI", "#Azure"]
+        skills: ["Django REST", "Python", "React", "OpenAI", "Azure"]
     },
     {
         id: 1,
-        title: "Portfolio Website",
-        description: "My personal portfolio website built using Next.js and Tailwind CSS.",
+        title: "Portfolio",
+        description: "Architected a lightning-fast modern portfolio web application leveraging Next.js server-side rendering, advanced Framer Motion declarative animations, and optimized component hydration.",
         image_id: "/projects/portfolio.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d/jaianand",
-        skills: ["#Nextjs", "#Tailwind", "#TypeScript", "#Framer Motion"]
+        skills: ["Nextjs", "Tailwind", "TypeScript", "Framer Motion"]
     },
     {
         id: 4,
-        title: "SADE",
-        description: "Face detection and recognition using OpenCV and Python part of Intern Project under IEEE",
+        title: "SADE Sentinel",
+        description: "Developed a robust facial detection and recognition pipeline using OpenCV and Python. Implemented a reliable alert microservice utilizing SendGrid for real-time intrusion monitoring.",
         image_id: "/projects/sade.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d/SADE-face-detection-and-recognition",
-        skills: ["#Python", "#OpenCV", "#Sendgrid"]
+        skills: ["Python", "OpenCV", "Sendgrid"]
     },
     {
         id: 2,
-        title: "Toy Pot",
-        description: "A dummy SSH Honeypot built with Python's Paramiko.",
+        title: "Toy Pot - Honeypot",
+        description: "Engineered a highly deceptive, simulated SSH Honeypot framework using Python's Paramiko library to efficiently capture, log, and analyze autonomous network intrusions and brute-force events.",
         image_id: "/projects/honeypot.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d/Toy-Pot",
-        skills: ["#Python", "#Paramiko"]
+        skills: ["Python", "Paramiko"]
     },
     {
         id: 3,
-        title: "Jobify Me",
-        description: "A clone of a leading freelance website built using React18.",
+        title: "Jobify Me!",
+        description: "Architected the frontend and data-fetching layer of a scalable freelance marketplace clone utilizing React18 and Bootstrap, heavily optimizing component rendering life-cycles.",
         image_id: "/projects/jobifyme.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d/Jobify-Me",
-        skills: ["#ReactJS", "#Bootstrap"]
+        skills: ["React", "Bootstrap"]
     },
     {
         id: 6,
-        title: "fast-type",
-        description: "A multiplayer typing game built as a part of TCB Hackathon.",
+        title: "Fast Type",
+        description: "Built a high-concurrency multiplayer typeracing platform. Developed real-time WebSocket communication utilizing Socket.io and ExpressJS to perfectly synchronize persistent player game states.",
         image_id: "/projects/fasttype.png",
         gihtub_link: "https://github.com/j-a-i-a-n-a-n-d",
-        skills: ["#Typescript", "#Socket.io", "#ExpressJS", "#MongoDB", "#React"]
+        skills: ["TypeScript", "Socket.io", "ExpressJS", "MongoDB", "React"]
     },
 ];
 

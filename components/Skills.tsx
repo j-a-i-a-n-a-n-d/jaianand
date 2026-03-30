@@ -7,8 +7,10 @@ import {
   SiReact, SiGit, SiGithub, SiDocker, SiMongodb, SiRedis, 
   SiPostgresql, SiApachekafka 
 } from 'react-icons/si';
-import { DiSqllite } from 'react-icons/di';
+import { DiSqllite, DiDatabase } from 'react-icons/di';
 import { VscAzure } from 'react-icons/vsc';
+import { FaJava, FaAws } from 'react-icons/fa';
+import { SiKubernetes, SiLinux, SiElixir, SiTypescript, SiSpringboot } from 'react-icons/si';
 
 // Map IDs to React Icons and technology names
 const getSkillAsset = (id: number) => {
@@ -29,14 +31,22 @@ const getSkillAsset = (id: number) => {
      case 14: return { icon: SiPostgresql, name: "PostgreSQL" };
      case 15: return { icon: SiMongodb, name: "MongoDB" };
      case 16: return { icon: SiApachekafka, name: "Kafka" };
+     case 17: return { icon: FaJava, name: "Java" };
+     case 18: return { icon: SiSpringboot, name: "Spring Boot" };
+     case 19: return { icon: SiKubernetes, name: "Kubernetes" };
+     case 20: return { icon: FaAws, name: "AWS" };
+     case 21: return { icon: SiLinux, name: "Linux" };
+     case 22: return { icon: DiDatabase, name: "Pinecone" };
+     case 23: return { icon: SiElixir, name: "Ecto ORM" };
+     case 24: return { icon: SiTypescript, name: "TypeScript" };
      default: return { icon: SiGit, name: "Tech" };
   }
 }
 
 export default function Skills() {
-  const topRow = [...skillData.slice(0, 5), ...skillData.slice(0, 5), ...skillData.slice(0, 5), ...skillData.slice(0, 5)];
-  const midRow = [...skillData.slice(5, 11), ...skillData.slice(5, 11), ...skillData.slice(5, 11), ...skillData.slice(5, 11)];
-  const botRow = [...skillData.slice(11, 16), ...skillData.slice(11, 16), ...skillData.slice(11, 16), ...skillData.slice(11, 16)];
+  const topRow = [...skillData.slice(0, 8), ...skillData.slice(0, 8), ...skillData.slice(0, 8), ...skillData.slice(0, 8)];
+  const midRow = [...skillData.slice(8, 16), ...skillData.slice(8, 16), ...skillData.slice(8, 16), ...skillData.slice(8, 16)];
+  const botRow = [...skillData.slice(16, 24), ...skillData.slice(16, 24), ...skillData.slice(16, 24), ...skillData.slice(16, 24)];
 
   const renderSkillBoxes = (row: typeof skillData, isReverse = false) => (
     <div className={`flex whitespace-nowrap gap-4 md:gap-6 shrink-0 ${isReverse ? 'animate-marquee-reverse ml-16' : 'animate-marquee'}`}>

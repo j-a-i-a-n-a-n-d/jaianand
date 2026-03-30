@@ -23,6 +23,9 @@ export default function AnimatedBackground() {
     const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
     // Start ship slightly off-center
     const ship = { x: canvas.width / 2, y: canvas.height / 2 + 50, angle: 0 };
+    
+    const shipImg = new window.Image();
+    shipImg.src = '/spaceship.png';
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
@@ -102,50 +105,101 @@ export default function AnimatedBackground() {
       while (deltaAngle < -Math.PI) deltaAngle += Math.PI * 2;
       ship.angle += deltaAngle * 0.08;
 
-      // Draw Spaceship (2x Scale)
+      // Draw Realistic GenAI Spaceship
       ctx.save();
       ctx.translate(ship.x, ship.y);
       ctx.rotate(ship.angle);
 
-      // Engine Glow / Exhaust
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const enginePower = Math.min(dist / 50, 1.2);
-      
-      if (enginePower > 0.05) {
-          ctx.beginPath();
-          ctx.moveTo(-8, 20);
-          ctx.lineTo(8, 20);
-          ctx.lineTo(0, 20 + (50 * enginePower));
-          ctx.closePath();
+      if (shipImg.complete && shipImg.width > 0) {
+          // The pure black background of the realistic spaceship png
+          // perfectly blends out in 'screen' composite mode, leaving only the glowing ship!
+          ctx.globalCompositeOperation = 'screen';
           
-          ctx.fillStyle = `rgba(128, 0, 32, ${0.4 + enginePower * 0.5})`; // Burgundy flame
-          ctx.shadowBlur = 30;
-          ctx.shadowColor = '#8b5cf6'; // Purple smoke glow
+          const targetWidth = window.innerWidth < 768 ? 90 : 150; // Big impressive scale
+          const scale = targetWidth / shipImg.width;
+          const w = targetWidth;
+          const h = shipImg.height * scale;
+          
+          // Rotate FIRST so flare + ship share the same coordinate space
+          // The generated image's nose points LEFT, thrusters point RIGHT.
+          // After this rotation, thrusters point downward (+y) visually.
+          ctx.rotate(Math.PI / 2);
+          
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          const enginePower = Math.min(dist / 30, 2.5);
+          
+          // Draw flare FIRST (behind ship) — emanates from the right edge (thruster side) of the image
+          if (enginePower > 0.05) {
+              ctx.beginPath();
+              // Wide cone shape emanating from thrusters
+              const flareStart = w / 2 * 0.7;
+              ctx.moveTo(flareStart, -30 * scale);
+              ctx.lineTo(flareStart, 30 * scale);
+              ctx.quadraticCurveTo(flareStart + (130 * enginePower), 8 * scale, flareStart + (140 * enginePower), 0);
+              ctx.quadraticCurveTo(flareStart + (130 * enginePower), -8 * scale, flareStart, -30 * scale);
+              ctx.closePath();
+              
+              const flareGradient = ctx.createLinearGradient(flareStart, 0, flareStart + (120 * enginePower), 0);
+              flareGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+              flareGradient.addColorStop(0.2, `rgba(139, 92, 246, ${0.8 + enginePower * 0.1})`);
+              flareGradient.addColorStop(0.6, `rgba(128, 0, 32, ${0.5 + enginePower * 0.2})`);
+              flareGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+              
+              ctx.fillStyle = flareGradient;
+              ctx.shadowBlur = 50;
+              ctx.shadowColor = '#8b5cf6';
+              ctx.fill();
+              ctx.shadowBlur = 0;
+          }
+
+          // Draw ship on top of flare
+          ctx.globalCompositeOperation = 'screen';
+          ctx.drawImage(shipImg, -w / 2, -h / 2, w, h);
+          ctx.drawImage(shipImg, -w / 2, -h / 2, w, h); 
+          
+          ctx.globalCompositeOperation = 'source-over'; // reset
+      } else {
+          // Fallback simple ship if image hasn't loaded
+          ctx.beginPath();
+          ctx.moveTo(15, 0);
+          ctx.lineTo(-10, 10);
+          ctx.lineTo(-10, -10);
+          ctx.closePath();
+          ctx.fillStyle = '#8b5cf6';
           ctx.fill();
-          ctx.shadowBlur = 0;
       }
 
-      // Ship Hull (sleek 2026 delta design at 2x scale)
+      ctx.restore();
+
+      // Thematic Custom Cursor Reticle
+      ctx.save();
+      ctx.translate(mouse.x, mouse.y);
+      
+      // Central glowing dot
       ctx.beginPath();
-      ctx.moveTo(0, -32);  // Nose
-      ctx.lineTo(24, 24);  // Right wingtip
-      ctx.lineTo(10, 16);  // Back right notch
-      ctx.lineTo(-10, 16); // Back left notch
-      ctx.lineTo(-24, 24); // Left wingtip
-      ctx.closePath();
-      
-      // Gradient metallic hull
-      const gradient = ctx.createLinearGradient(0, -32, 0, 24);
-      gradient.addColorStop(0, '#ffffff'); // bright nose
-      gradient.addColorStop(0.5, '#aaaaaa');
-      gradient.addColorStop(1, '#8b5cf6'); // purple infused engines
-      
-      ctx.fillStyle = gradient;
+      ctx.arc(0, 0, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#8b5cf6'; // Purple center
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = '#ffffff';
       ctx.fill();
+      ctx.shadowBlur = 0;
       
-      // Hull outline
+      // Outer rotating dashed targeting ring
+      ctx.rotate(Date.now() * 0.002);
+      ctx.beginPath();
+      ctx.arc(0, 0, 22, 0, Math.PI * 2);
       ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.setLineDash([12, 10, 4, 10]);
+      ctx.strokeStyle = 'rgba(128, 0, 32, 0.9)'; // Signature Burgundy ring
+      ctx.stroke();
+
+      // Inner counter-rotating calibration ring
+      ctx.rotate(-Date.now() * 0.004);
+      ctx.beginPath();
+      ctx.arc(0, 0, 14, 0, Math.PI * 2);
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 12]);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)'; // White ticks
       ctx.stroke();
 
       ctx.restore();
